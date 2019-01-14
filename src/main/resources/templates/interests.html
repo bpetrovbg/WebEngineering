@@ -1,0 +1,62 @@
+<link rel="stylesheet" type="text/css" media="all" href="../../css/main.css" th:href="@{/css/main.css}" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<title>My interests</title>
+   <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/main">MENU</a>
+                </li>
+                <li>
+                    <a href="/main">Search</a>
+                </li>
+                <li>
+                    <a href="/main/account">My account</a>
+                </li>
+                <li>
+                    <a href="/main/interests">My interests</a>
+                </li>
+                <li>
+                    <a href="/main/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div class="row">
+          <div class="column"><h1>All INTERESTS:</h1>
+          <table border="1px solid">
+          <th:block th:each="interest : ${interests}">
+          <tr>
+          <td th:text="'ID: ' + ${interest.getInterestid()}"></td>
+          <td th:text="${interest.getInterestName()}"></td>
+          </tr>
+          </th:block>
+          </table></div>
+          <div class="column"><h1>MY INTERESTS:</h1>
+          <table border="1px solid">
+          <th:block th:each="userinterest : ${userinterests}">
+          <tr>
+          <td th:text="'ID: '+${userinterest.getInterestid()}"></td>
+          <td th:text="${userinterest.getInterestName()}"></td>
+          </tr>
+          </th:block>
+          </table></div>
+        </div>
+        <form method="post" action="/main/interests/add" enctype="application/json">
+        <input type="text" name="interestname" class="textbox" placeholder="Write interest name to add...">
+        <input value="ADD" type="submit" class="button">
+        </form>
+        <form method="post" action="/main/interests/remove" enctype="application/json">
+        <input type="text" pattern="\d{1,15}" name="interestid" class="textbox" placeholder="Write interest ID to remove...">
+        <input value="REMOVE" type="submit" class="button">
+        </form>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->

@@ -1,0 +1,64 @@
+<link rel="stylesheet" type="text/css" media="all" href="../../css/main.css" th:href="@{/css/main.css}" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<title>My account</title>
+   <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/main">MENU</a>
+                </li>
+                <li>
+                    <a href="/main">Search</a>
+                </li>
+                <li>
+                    <a href="/main/account">My account</a>
+                </li>
+                <li>
+                    <a href="/main/interests">My interests</a>
+                </li>
+                <li>
+                    <a href="/main/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>ACCOUNT SETTINGS:</h1>
+                        <h3 th:text="'My username: ' + ${username}"></h3>
+                        <h3 th:text="'My first name: ' + ${firstname}"></h3>
+                        <h3 th:text="'My last name: ' + ${lastname}"></h3>
+                        <h3 th:text="'My phone:' + ${phone}"></h3>
+                        <h3 th:text="'My social network: ' + ${socialnetwork}"></h3>
+                    </div>
+               <form method="post" action="/main/account/updatefn" enctype="application/json">
+                 <input type="text" name="firstname" class="textbox" placeholder="Update your first name here...">
+                 <input value="UPDATE" type="submit" class="button">
+               </form>
+               <form method="post" action="/main/account/updateln" enctype="application/json">
+                 <input type="text" name="lastname" class="textbox" placeholder="Update your last name here...">
+                 <input value="UPDATE" type="submit" class="button">
+               </form>
+               <form method="post" action="/main/account/updatephone" enctype="application/json">
+                 <input type="text" name="phone" class="textbox" placeholder="Update your phone here...">
+                 <input value="UPDATE" type="submit" class="button">
+               </form>
+               <form method="post" action="/main/account/updatesocial" enctype="application/json">
+                 <input type="text" name="socialnetwork" class="textbox" placeholder="Update your social network here...">
+                 <input value="UPDATE" type="submit" class="button">
+               </form>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    </div>

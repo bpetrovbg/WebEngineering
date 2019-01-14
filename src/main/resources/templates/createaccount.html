@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" media="all" href="../../css/login.css" th:href="@{/css/login.css}" />
+  <title>Web Engineering project</title>
+</head>
+<body>
+<div class="form">
+<div class="login-page">
+  <form id="createuserform" action="/createaccount" method="post" enctype="application/json">
+      <input name="userName" type="text" placeholder="Username*"/>
+      <input name="userPassword" type="password" placeholder="Password*"/>
+      <input name="firstName" type="text" placeholder="First Name"/>
+      <input name="lastName" type="text" placeholder="Last Name"/>
+      <input name="userPhone" type="text" placeholder="Phone"/>
+      <input name="userSocialNetwork" type="text" placeholder="Social network URL"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="/login">Sign In</a></p>
+      </form>
+    </div>
+  </div>
+  </body>

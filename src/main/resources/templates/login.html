@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" media="all" href="../../css/login.css" th:href="@{/css/login.css}" />
+  <title>Web Engineering project</title>
+  <style>
+  .loginerror {
+  color: #FFFFFF;
+  font-size: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="loginerror" align="center" th:text="${error}"></div>
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" method="post" action="/login">
+          <input type="text" placeholder="Username" name="username"/>
+          <input type="password" placeholder="Password" name="password"/>
+          <button type="submit">Login</button>
+          <p class="message">Not registered? <a href="/createaccount">Create an account</a></p>
+        </form>
+  </div>
+</div>
+</body>
