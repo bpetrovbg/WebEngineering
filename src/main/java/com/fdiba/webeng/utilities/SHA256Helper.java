@@ -6,6 +6,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class SHA256Helper {
 
+    //default constructor
+    public SHA256Helper() {}
+
     public String inputPassHash(String inputPassword) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         byte[] hash = digest.digest(inputPassword.getBytes("UTF-8"));

@@ -92,7 +92,7 @@ public class MainController {
                 ArrayList<User> userListBasedOnSameInterests = new ArrayList<User>();
 
                 for (User user : allUsers) {
-                    if (!user.getUserName().equals(currentUser.getUserName()) && user.getUserInterestsList().stream().anyMatch(userDBInterest -> userDBInterest.getInterestName().contains(userInterest))) {
+                    if (!user.getUserName().equals(currentUser.getUserName()) && user.getUserInterestsList().stream().anyMatch(userDBInterest -> userDBInterest.getInterestname().contains(userInterest))) {
                         userListBasedOnSameInterests.add(user);
                     }
                 }
@@ -194,9 +194,9 @@ public class MainController {
                         Interest interest = new Interest();
                         interest.setInterestname(body.get("interestname"));
 
-                        if (userInterestsList.stream().noneMatch(userOldInterest -> userOldInterest.getInterestName().equals(interest.getInterestName()))) {
+                        if (userInterestsList.stream().noneMatch(userOldInterest -> userOldInterest.getInterestname().equals(interest.getInterestname()))) {
                             for (Interest interestFromDB : interestRepository.findAll()) {
-                                if (interestFromDB.getInterestName().equals(interest.getInterestName())) {
+                                if (interestFromDB.getInterestname().equals(interest.getInterestname())) {
                                     interest.setInterestid(interestFromDB.getInterestid());
                                 }
                             }
@@ -213,7 +213,7 @@ public class MainController {
                         interest.setInterestname(body.get("interestname"));
 
                         for (Interest interestFromDB : interestRepository.findAll()) {
-                            if (interestFromDB.getInterestName().equals(interest.getInterestName())) {
+                            if (interestFromDB.getInterestname().equals(interest.getInterestname())) {
                                 interest.setInterestid(interestFromDB.getInterestid());
                             }
                         }

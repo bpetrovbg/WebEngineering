@@ -21,7 +21,7 @@ public class InterestController {
     public @ResponseBody
     Iterable<Interest> getallInterests() {
         for (Interest interest : interestRepository.findAll()) {
-            System.out.println(interest.getInterestName());
+            System.out.println(interest.getInterestname());
         }
         return interestRepository.findAll();
     }
@@ -29,7 +29,9 @@ public class InterestController {
     @PostMapping(path = "/interest/add", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody
     String saveInterest(@RequestBody Interest interestToAddJson) {
-        interestRepository.save(interestToAddJson);
-        return "Interest saved!";
+        if(interestRepository.findByInterestname(interestToAddJson.getInterestname()) == null) {
+            interestRepository.save(interestToAddJson);
+            return "Interest saved!";
+        } else return "Interest is already saved!";
     }
 }

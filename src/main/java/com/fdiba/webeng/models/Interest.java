@@ -17,17 +17,22 @@ public class Interest {
     private String interestname;
 
     //default constructor
-    public Interest() {}
-
-    public void setInterestname(String interestName) {
-        this.interestname = interestName;
+    public Interest() {
     }
 
-    public Integer getInterestid() { return interestid;}
+    public void setInterestname(String interestname) {
+        this.interestname = interestname;
+    }
 
-    public void setInterestid(Integer interestid) { this.interestid = interestid;}
+    public Integer getInterestid() {
+        return interestid;
+    }
 
-    public String getInterestName () {
+    public void setInterestid(Integer interestid) {
+        this.interestid = interestid;
+    }
+
+    public String getInterestname() {
         return interestname;
     }
 }

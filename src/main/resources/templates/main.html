@@ -4,13 +4,20 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <style>
-table, th, td {
-    border: 1px solid black;
+#similaruserstable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
+    width: 100%;
 }
-th, td {
-    padding: 10px;
+
+#similaruserstable td, #similaruserstable th {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
+
+#similaruserstable tr:nth-child(even){background-color: #f2f2f2;}
+
+#similaruserstable tr:hover {background-color: #ddd;}
 </style>
 <title>Main</title>
 </head>
@@ -51,7 +58,7 @@ th, td {
                         </form>
                     </div>
                     <h1>Suggested users:</h1>
-                    <table id="alter">
+                    <table id="similaruserstable">
                     <th:block th:each="user : ${similarUsers}">
                     <tr>
                     <td th:text="'Username: ' + ${user.getUserName()}"></td>

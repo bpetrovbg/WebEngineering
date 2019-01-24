@@ -1,7 +1,25 @@
-<link rel="stylesheet" type="text/css" media="all" href="../../css/main.css" th:href="@{/css/main.css}" />
+<head><link rel="stylesheet" type="text/css" media="all" href="../../css/main.css" th:href="@{/css/main.css}" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+<style>
+#customtable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+#customtable td, #customtable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customtable tr:nth-child(even){background-color: #f2f2f2;}
+
+#customtable tr:hover {background-color: #ddd;}
+</style>
+</head>
+<body>
 <title>My interests</title>
    <div id="wrapper">
 
@@ -30,20 +48,20 @@
         <!-- Page Content -->
         <div class="row">
           <div class="column"><h1>All INTERESTS:</h1>
-          <table border="1px solid">
+          <table id="customtable">
           <th:block th:each="interest : ${interests}">
           <tr>
           <td th:text="'ID: ' + ${interest.getInterestid()}"></td>
-          <td th:text="${interest.getInterestName()}"></td>
+          <td th:text="${interest.getInterestname()}"></td>
           </tr>
           </th:block>
           </table></div>
           <div class="column"><h1>MY INTERESTS:</h1>
-          <table border="1px solid">
+          <table id="customtable">
           <th:block th:each="userinterest : ${userinterests}">
           <tr>
           <td th:text="'ID: '+${userinterest.getInterestid()}"></td>
-          <td th:text="${userinterest.getInterestName()}"></td>
+          <td th:text="${userinterest.getInterestname()}"></td>
           </tr>
           </th:block>
           </table></div>
@@ -60,3 +78,4 @@
 
     </div>
     <!-- /#wrapper -->
+</body>

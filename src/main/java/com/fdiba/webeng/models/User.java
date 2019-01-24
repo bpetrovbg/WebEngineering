@@ -1,5 +1,7 @@
 package com.fdiba.webeng.models;
 
+import org.springframework.context.annotation.Bean;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
